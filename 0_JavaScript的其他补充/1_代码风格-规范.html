@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1.foo和()之间不需要有空格
+      // 2.多个参数逗号后面加上一个空格
+      // 3.()和{之间有一个空格
+      // 4.{和其他函数定义在同一行种
+      function foo(m, n) {}
+
+      foo(20, 30)
+
+      if (true) {
+
+      } else {
+
+      }
+
+      for (var i = 0; i < 4; i++) {}
+
+      // 模板字符串(可以换行)
+      var message = `
+        哈哈哈哈哈${100}
+      `
+      
+      // 图里面建议：
+      function sum(num1, num2) {
+        return num1 + num2
+      }
+
+      console.log( sum(20, 30) )
+    </script>
+  </body>
+</html>
