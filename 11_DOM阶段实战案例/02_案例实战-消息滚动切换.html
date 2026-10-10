@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .tip-bar {
+        display: inline-flex;
+        align-items: center;
+        height: 30px;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 16px;
+      }
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+      span {
+        font-size: 13px;
+        color: white;
+        margin-right: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tip-bar">
+      <img
+        src="https://img.tuxiangyan.com/zb_users/upload/2023/01/202301111673422269526156.jpg"
+        alt=""
+      />
+      <span>183***138对这件商品感兴趣</span>
+    </div>
+
+    <script>
+      // 1.从服务器拿到数据ajax/fetch请求
+      let tipList = [
+        {
+          icon: "https://ts3.tc.mm.bing.net/th/id/OIP-C.5ooRLwOjjk5JNNOUTRAbuAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+          title: "coderwhy对这件商品感兴趣",
+        },
+        {
+          icon: "https://p1.music.126.net/1ddFCzXXbYNK1njzmt3PIw==/6638851210149110.jpg",
+          title: "123***814对这件商品感兴趣",
+        },
+        {
+          icon: "https://ts4.tc.mm.bing.net/th/id/OIP-C.iue99TOaqlW5YpMWyV7dgQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+          title: "刘军对这件商品感兴趣",
+        },
+      ];
+
+      // 2.动态的切换数据
+      // 2.1.获取元素
+      var tipBar = document.querySelector(".tip-bar");
+      var imgEl = tipBar.querySelector("img");
+      var spanEl = tipBar.querySelector("span");
+
+      // 2.2.3s切换一次数据
+      var currentIndex = 0 //记录当前展示到的索引位置
+      setInterval(function () {
+        // 1> 根据索引获取item
+        var tipItem = tipList[currentIndex]
+
+        // 2> 给DOM设置内容
+        imgEl.src = tipItem.icon;
+        spanEl.textContent = tipItem.title;
+
+        // 3> 重新计算索引
+        currentIndex++
+        if(currentIndex === tipList.length) {
+          currentIndex = 0
+        }
+      }, 3000);
+
+      // 随机
+      // Math.floor(Math.random() * tipList.length)
+    </script>
+  </body>
+</html>
